@@ -6,7 +6,7 @@ public class Item
     public string Title { get; } = String.Empty;
     public int Year { get; }
     public string Category { get; } = String.Empty;
-    public ItemStates State => ItemStates.Available;
+    public ItemStates State { get; set; }  = ItemStates.Available;
     public string Shelf { get; } = String.Empty;
     public Author Author { get; }
 
@@ -49,6 +49,7 @@ public class Item
         return
             $"Code: {Code}\n" +
             $"Title: {Title}\n" +
-            $"Year: {Year}\n";
+            $"Year: {Year}\n" +
+            $"State: {State}\n";
     }
 }

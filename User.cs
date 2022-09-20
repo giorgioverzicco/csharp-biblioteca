@@ -11,7 +11,8 @@ public class User
     public string Email { get; }
     public string Password { get; }
     public string PhoneNumber { get; }
-
+    public List<Item> BorrowedItems { get; } = new();
+    
     public User(
         string firstName, 
         string lastName, 
@@ -42,6 +43,18 @@ public class User
     public List<Item> SearchByTitle(Library library, string title)
     {
         return library.FindByTitle(title);
+    }
+
+    public void Borrow(Library library, Item item)
+    {
+        library.Borrow(item);
+        BorrowedItems.Add(item);
+    }
+
+    public void Return(Library library, Item item)
+    {
+        library.Return(item);
+        BorrowedItems.Remove(item);
     }
 
     private bool IsValidEmail(string email)

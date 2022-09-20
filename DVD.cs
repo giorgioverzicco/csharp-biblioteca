@@ -19,9 +19,7 @@ public class DVD : Item
     public override string ToString()
     {
         return
-            $"Code: {Code}\n" +
-            $"Title: {Title}\n" +
-            $"Year: {Year}\n" +
+            base.ToString() +
             $"Duration: {Duration} minutes\n";
     }
 }
