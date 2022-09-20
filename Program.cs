@@ -60,8 +60,27 @@ do
         case 7:
             ListBorrowedItems(user);
             break;
+        case 8:
+            ListBorrowedItemsInLibrary(library);
+            break;
     }
 } while (choice != -1);
+
+void ListBorrowedItemsInLibrary(Library library)
+{
+    if (library.ItemBorrowLogs.Count > 0)
+    {
+        Console.WriteLine("Here's all the borrows in the library:");
+        foreach (var log in library.ItemBorrowLogs)
+        {
+            Console.WriteLine(log);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Nothing is taken from this library.");
+    }
+}
 
 void ListBorrowedItems(User? user)
 {
@@ -187,7 +206,7 @@ void ListAllItemsInLibrary(Library library)
     }
     else
     {
-        Console.WriteLine($"There's no item in the library.");
+        Console.WriteLine("There's no item in the library.");
     }
 }
 
@@ -242,6 +261,7 @@ void PrintOptions()
     Console.WriteLine("5. Borrow an item");
     Console.WriteLine("6. Return an item");
     Console.WriteLine("7. List all your borrowed items");
+    Console.WriteLine("8. List all the borrowed items in the library");
     
     Console.Write("> ");
 }

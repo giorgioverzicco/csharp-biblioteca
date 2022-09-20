@@ -48,12 +48,20 @@ public class User
     public void Borrow(Library library, Item item)
     {
         library.Borrow(item);
+
+        library.ItemBorrowLogs.Add(
+            new ItemBorrowLog(this, item, DateTime.Now));
+        
         BorrowedItems.Add(item);
     }
 
     public void Return(Library library, Item item)
     {
         library.Return(item);
+        
+        library.ItemReturnLogs.Add(
+            new ItemReturnLog(this, item, DateTime.Now));
+        
         BorrowedItems.Remove(item);
     }
 

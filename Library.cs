@@ -3,6 +3,8 @@ namespace csharp_biblioteca;
 public class Library
 {
     public List<Item> Items { get; } = new();
+    public List<ItemBorrowLog> ItemBorrowLogs { get; } = new();
+    public List<ItemReturnLog> ItemReturnLogs { get; } = new();
 
     public void Add(Item item)
     {
